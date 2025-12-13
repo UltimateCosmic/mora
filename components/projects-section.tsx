@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ExternalLink } from "lucide-react"
 import { SiUnity, SiBlender, SiAutodesk, SiSharp, SiAndroid, SiOculus } from "react-icons/si"
 import { TbWorldWww } from "react-icons/tb"
@@ -28,7 +28,12 @@ const projects = [
     title: "Bimbo",
     role: "Technical Artist",
     description: "Integración de assets en tiempo real, modelado y rigging de elementos interactivos. Desarrollo de herramientas personalizadas en Unity que mejoraron el pipeline de integración y validación de contenido.",
-    image: "/projects/Bimbo/hector-mora-parte1.jpg",
+    images: [
+      "/projects/Bimbo/hector-mora-parte1.jpg",
+      "/projects/Bimbo/hector-mora-parte2.jpg",
+      "/projects/Bimbo/hector-mora-parte3.jpg",
+      "/projects/Bimbo/hector-mora-parte4.jpg",
+    ],
     technologies: ["Unity", "3ds Max", "C#"],
   },
   {
@@ -36,7 +41,11 @@ const projects = [
     title: "Marinela",
     role: "Technical Artist",
     description: "Integración de herramientas web y modelos 3D. Rigging y creación de sistemas de animación.",
-    image: "/projects/Marinela/marinela-preview.jpg",
+    images: [
+      "/projects/Marinela/hector-mora-parte-01.jpg",
+      "/projects/Marinela/hector-mora-parte-02.jpg",
+      "/projects/Marinela/hector-mora-parte-03.jpg",
+    ],
     technologies: ["Unity", "3ds Max", "C#"],
   },
   {
@@ -44,7 +53,12 @@ const projects = [
     title: "Aderiac - VR Training",
     role: "Lead Programmer",
     description: "Simulador de montacargas y quizz interactivos optimizado para Oculus Quest 2.",
-    image: "/projects/Aderiac/hector-mora-parte01.jpg",
+    images: [
+      "/projects/Aderiac/hector-mora-parte01.jpg",
+      "/projects/Aderiac/hector-mora-parte02.jpg",
+      "/projects/Aderiac/hector-mora-parte04.jpg",
+      "/projects/Aderiac/hector-mora-parte06.jpg",
+    ],
     technologies: ["Unity", "C#", "Oculus Quest 2", "VR"],
   },
   {
@@ -52,7 +66,12 @@ const projects = [
     title: "Cascoo",
     role: "Lead Programmer",
     description: "Visualizador interactivo de piezas con herramientas personalizadas para coordinar interacciones.",
-    image: "/projects/Cascoo/hector-mora-parte02 (1).jpg",
+    images: [
+      "/projects/Cascoo/hector-mora-parte02 (1).jpg",
+      "/projects/Cascoo/hector-mora-parte03.jpg",
+      "/projects/Cascoo/hector-mora-parte04.jpg",
+      "/projects/Cascoo/hector-mora-parte05.jpg",
+    ],
     technologies: ["Unity", "C#"],
   },
   {
@@ -60,7 +79,11 @@ const projects = [
     title: "MAC Museum",
     role: "Project Manager / Lead Programmer",
     description: "Entorno VR interactivo para el Museo de Arte Contemporáneo de San Luis Potosí.",
-    image: "/projects/Mac/hector-mora-parte01.jpg",
+    images: [
+      "/projects/Mac/hector-mora-parte01.jpg",
+      "/projects/Mac/hector-mora-parte02.jpg",
+      "/projects/Mac/hector-mora-parte03.jpg",
+    ],
     technologies: ["Unity", "C#", "VR"],
   },
   {
@@ -68,7 +91,10 @@ const projects = [
     title: "Hell Soul Factory",
     role: "Full Project Developer",
     description: "Desarrollo integral: programación, modelado 3D, animación y publicación en Play Store.",
-    image: "/projects/HellSoulFactory/hector-mora-soulsfactoryarstation01.png",
+    images: [
+      "/projects/HellSoulFactory/hector-mora-soulsfactoryarstation01.png",
+      "/projects/HellSoulFactory/hector-mora-soulsfactoryarstation02.png",
+    ],
     technologies: ["Unity", "Blender", "C#", "Android"],
   },
   {
@@ -76,13 +102,20 @@ const projects = [
     title: "Rubbermaid",
     role: "Technical Artist",
     description: "Sistemas de iluminación, reflecciones y visuales interactivas para WebGL y Android.",
-    image: "/projects/Rubbermaid/rubbermaid-preview.jpg",
+    images: [
+      "/projects/Rubbermaid/hector-mora-parte01.jpg",
+      "/projects/Rubbermaid/hector-mora-parte02.jpg",
+      "/projects/Rubbermaid/hector-mora-parte03.jpg",
+      "/projects/Rubbermaid/hector-mora-parte04.jpg",
+    ],
     technologies: ["Unity", "WebGL", "Android"],
   },
 ]
 
 export function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState<Record<number, number>>({})
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -108,48 +141,89 @@ export function ProjectsSection() {
     }
   }, [])
 
+  // Efecto para cambiar imágenes automáticamente al hacer hover
+  useEffect(() => {
+    if (hoveredProject === null) return
+
+    const project = projects.find(p => p.id === hoveredProject)
+    if (!project || project.images.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex(prev => ({
+        ...prev,
+        [hoveredProject]: ((prev[hoveredProject] || 0) + 1) % project.images.length
+      }))
+    }, 800)
+
+    return () => clearInterval(interval)
+  }, [hoveredProject])
+
   return (
     <section id="projects" ref={sectionRef} className="py-12 md:py-20 fade-in-section">
       <div className="container px-4 md:px-6">
         <div className="mx-auto max-w-[90rem]">
-          <h2 className="text-4xl font-bold leading-tight tracking-tighter md:text-5xl mb-4 font-[family-name:var(--font-oswald)]">
+          <h2 className="text-4xl md:text-5xl mb-4">
             {/*<span className="gradient-text">#</span>*/} Proyectos
           </h2>
           <p className="text-dark-secondary text-lg mb-12">
             Experiencia profesional en desarrollo de videojuegos, realidad virtual y experiencias interactivas
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="group bg-dark-surface rounded-xl overflow-hidden border border-dark-border transition-all duration-300 hover:border-dark-purple hover:shadow-2xl hover:shadow-dark-purple/20 hover:-translate-y-2"
-              >
-                <div className="h-56 overflow-hidden relative bg-dark-background">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-background via-transparent to-transparent opacity-60"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold font-[family-name:var(--font-oswald)] mb-2">{project.title}</h3>
-                  <p className="text-dark-cyan text-sm font-semibold mb-3">{project.role}</p>
-                  <p className="text-dark-secondary text-sm mb-4 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="flex items-center gap-1.5 text-xs bg-dark-background px-3 py-1.5 rounded-full text-dark-foreground border border-dark-border hover:border-dark-cyan transition-colors"
-                      >
-                        {getTechIcon(tech) && <span className="text-dark-accent">{getTechIcon(tech)}</span>}
-                        {tech}
-                      </span>
-                    ))}
+            {projects.map((project) => {
+              const currentIndex = currentImageIndex[project.id] || 0
+              const currentImage = project.images[currentIndex]
+              
+              return (
+                <div
+                  key={project.id}
+                  className="group bg-dark-surface rounded-xl overflow-hidden border border-dark-border transition-all duration-300 hover:border-dark-cyan hover:shadow-2xl hover:shadow-dark-cyan/20 hover:-translate-y-2"
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => {
+                    setHoveredProject(null)
+                    setCurrentImageIndex(prev => ({ ...prev, [project.id]: 0 }))
+                  }}
+                >
+                  <div className="h-56 overflow-hidden relative bg-dark-background">
+                    <img
+                      src={currentImage || "/placeholder.svg"}
+                      alt={`${project.title} - Imagen ${currentIndex + 1}`}
+                      className="w-full h-full object-cover object-center transition-all duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-background via-transparent to-transparent opacity-60"></div>
+                    {project.images.length > 1 && (
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                        {project.images.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`h-1.5 rounded-full transition-all ${
+                              index === currentIndex 
+                                ? 'w-6 bg-dark-cyan' 
+                                : 'w-1.5 bg-dark-secondary/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-4xl">{project.title}</h3>
+                    <p className="text-dark-purple text-sm font-semibold mb-4">{project.role}</p>
+                    <p className="text-dark-secondary text-sm mb-4 line-clamp-3">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="flex items-center gap-1.5 text-xs bg-dark-background px-3 py-1.5 rounded-full text-dark-foreground border border-dark-border hover:border-dark-cyan transition-colors"
+                        >
+                          {getTechIcon(tech) && <span className="text-dark-cyan">{getTechIcon(tech)}</span>}
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>

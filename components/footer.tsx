@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="text-center md:text-left">
             <p className="text-sm text-dark-secondary mb-1">
-              &copy; {new Date().getFullYear()} <span className="text-dark-accent font-semibold">Héctor Mora</span>. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} <span className="text-dark-purple font-semibold">Héctor Mora</span>. Todos los derechos reservados.
             </p>
             <p className="text-xs text-dark-muted">
               Lic. Desarrollo Integral de Videojuegos

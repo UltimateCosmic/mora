@@ -23,7 +23,7 @@
   --input: 30 35 50;
   --ring: 139 92 246; /* Púrpura */
   --radius: 0.75rem;
-  --font-oswald: "Oswald", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
 }
 
 html {
@@ -44,8 +44,9 @@ body {
   }
 }
 
-.font-oswald {
-  font-family: var(--font-oswald);
+h1, h2, h3, h4, h5, h6, .font-bebas {
+  font-family: var(--font-bebas);
+  font-weight: 400;
 }
 
 /* Scrollbar styling */
@@ -58,12 +59,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6 0%, #22d3ee 100%);
+  background: #8b5cf6;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a78bfa 0%, #67e8f9 100%);
+  background: #a78bfa;
 }
 
 /* Code block styling */
@@ -183,7 +184,7 @@ pre code {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 100%);
+  background: #8b5cf6;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
 }
 

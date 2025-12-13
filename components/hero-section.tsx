@@ -7,58 +7,66 @@ import { SiSketchfab } from "react-icons/si"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
+interface Character {
+  src: string
+  alt: string
+  x: number
+  y: number
+  scale: number
+  depth: number
+  rotation: number
+}
+
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [currentLine, setCurrentLine] = useState(0)
-  const codeLines = [
-    {
-      id: 1,
-      content:
-        '<span class="code-keyword">class</span> <span class="code-class">DigitalArtist</span> {',
-      delay: 0,
-    },
-    {
-      id: 2,
-      content: '  <span class="code-variable">name</span>: <span class="code-string">"Héctor Mora"</span>;',
-      delay: 800,
-    },
-    {
-      id: 3,
-      content: '  <span class="code-variable">role</span>: <span class="code-string">"Technical Artist"</span>;',
-      delay: 1200,
-    },
-    {
-      id: 4,
-      content:
-        '  <span class="code-variable">location</span>: <span class="code-string">"México"</span>;',
-      delay: 1600,
-    },
-    {
-      id: 5,
-      content: '  <span class="code-variable">skills</span>: [<span class="code-string">"Unity"</span>, <span class="code-string">"Unreal"</span>, <span class="code-string">"3D Art"</span>];',
-      delay: 2400,
-    },
-    { id: 6, content: '  <span class="code-function">createArt</span>() {', delay: 3200 },
-    {
-      id: 7,
-      content:
-        '    <span class="code-keyword">return</span> <span class="code-string">"Bringing ideas to life"</span>;',
-      delay: 4000,
-    },
-    { id: 8, content: "  }", delay: 4800 },
-    { id: 9, content: "}", delay: 5600 },
-  ]
-
+  const [scrollY, setScrollY] = useState(0)
+  const [currentCharacter, setCurrentCharacter] = useState(0)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const sectionRef = useRef<HTMLElement | null>(null)
+
+  const characters: Character[] = [
+    { src: "/projects/PngTransparencia/png00.png", alt: "Personaje demonio rosa", x: 20, y: 10, scale: 1.2, depth: 0.8, rotation: -5 },
+    { src: "/projects/PngTransparencia/png01.png", alt: "Personaje verde", x: 60, y: 50, scale: 0.9, depth: 0.5, rotation: 8 },
+    { src: "/projects/PngTransparencia/png03.png", alt: "Personaje payaso", x: 10, y: 60, scale: 0.8, depth: 0.6, rotation: -3 },
+    { src: "/projects/PngTransparencia/png04.png", alt: "Tanque", x: 70, y: 20, scale: 0.7, depth: 0.4, rotation: 0 },
+    { src: "/projects/PngTransparencia/png05.png", alt: "Personaje conejo", x: 80, y: 70, scale: 0.85, depth: 0.7, rotation: 5 },
+    { src: "/projects/PngTransparencia/png06.png", alt: "Personaje rosa grande", x: 40, y: 30, scale: 1, depth: 0.9, rotation: -8 },
+  ]
 
   useEffect(() => {
     setIsVisible(true)
 
-    const timer = setTimeout(() => {
-      setCurrentLine(codeLines.length)
-    }, 6000)
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect()
+        const scrollProgress = Math.max(0, -rect.top / window.innerHeight)
+        setScrollY(scrollProgress)
+      }
+    }
 
-    return () => clearTimeout(timer)
+    const handleMouseMove = (e: MouseEvent) => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect()
+        const x = (e.clientX - rect.left) / rect.width
+        const y = (e.clientY - rect.top) / rect.height
+        setMousePosition({ x, y })
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("mousemove", handleMouseMove)
+    handleScroll()
+
+    // Cambiar personaje destacado cada 3 segundos
+    const characterInterval = setInterval(() => {
+      setCurrentCharacter((prev) => (prev + 1) % characters.length)
+    }, 3000)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("mousemove", handleMouseMove)
+      clearInterval(characterInterval)
+    }
   }, [])
 
   return (
@@ -68,29 +76,34 @@ export function HeroSection() {
       className="min-h-screen flex items-center py-20 relative overflow-hidden"
       style={{ position: "relative" }}
     >
-      {/* Spotlights con nuevo esquema de colores */}
+      {/* Gradientes de fondo dinámicos e interactivos */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
+        className="pointer-events-none absolute inset-0 z-0 transition-all duration-300"
         style={{
           background:
-            `radial-gradient(600px 300px at 0% 20%, rgba(139, 92, 246, 0.25), transparent 70%),` +
-            `radial-gradient(500px 250px at 100% 80%, rgba(34, 211, 238, 0.25), transparent 70%)` +
-            `,radial-gradient(400px 200px at 50% 50%, rgba(139, 92, 246, 0.12), transparent 80%)`,
-          transition: "background 0.5s",
+            `radial-gradient(800px 400px at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(139, 92, 246, 0.35), transparent 70%),` +
+            `radial-gradient(700px 350px at ${100 - mousePosition.x * 100}% ${100 - mousePosition.y * 100}%, rgba(34, 211, 238, 0.3), transparent 70%)` +
+            `,radial-gradient(600px 300px at 50% 50%, rgba(139, 92, 246, 0.15), transparent 80%)`,
         }}
       />
+
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="grid gap-8 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
+        <div className="grid gap-8 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          {/* Contenido textual */}
           <div className="flex flex-col justify-center space-y-8">
             <div className={`transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
               <div className="flex items-baseline mb-2">
-                <div className="flex items-center">
-                  <img src="/mora.svg" alt="Logotipo de Héctor Mora" className="w-48 sm:w-56 xl:w-64 object-contain" />
+                <div className="flex items-center group cursor-pointer">
+                  <img 
+                    src="/mora.svg" 
+                    alt="Logotipo de Héctor Mora" 
+                    className="w-48 sm:w-56 xl:w-64 object-contain transition-transform duration-300 group-hover:scale-110" 
+                  />
                   <h1 className="sr-only">HÉCTOR MORA</h1>
                 </div>
               </div>
-              <h2 className="uppercase font-oswald text-2xl sm:text-3xl text-dark-cyan mb-4 font-semibold">
+              <h2 className="font-bebas-neue text-2xl sm:text-3xl text-white mb-4">
                 Lic. Desarrollo Integral de Videojuegos
               </h2>
               <p className="max-w-[600px] text-dark-secondary text-lg mb-6 leading-relaxed">
@@ -103,7 +116,7 @@ export function HeroSection() {
               className={`flex flex-col sm:flex-row gap-4 transition-opacity duration-1000 delay-500 ${isVisible ? "opacity-100" : "opacity-0"}`}
             >
               <Button
-                className="bg-gradient-to-r from-dark-purple to-dark-cyan hover:opacity-90 text-white font-semibold button-hover-fix shadow-lg hover:shadow-xl transition-all"
+                className="bg-dark-purple hover:bg-dark-purple/80 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
                 asChild
               >
                 <Link href="#projects">
@@ -113,7 +126,7 @@ export function HeroSection() {
               </Button>
               <Button
                 variant="outline"
-                className="border-dark-border hover:bg-dark-surface hover:text-dark-cyan transition-all"
+                className="border-dark-cyan text-dark-cyan bg-dark-background hover:bg-dark-cyan hover:text-dark-background transition-all"
                 asChild
               >
                 <Link href="#contact">Contacto</Link>
@@ -162,34 +175,74 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Code block con animación de typing */}
-          <div className="flex items-center">
-            <div
-              className={`bg-dark-code-bg border border-dark-border rounded-lg p-6 w-full transition-opacity duration-1000 delay-300 ${isVisible ? "opacity-100" : "opacity-0"} shadow-2xl`}
-              style={{
-                boxShadow: "0 0 30px rgba(139, 92, 246, 0.2)",
-              }}
-            >
-              <div className="flex items-center mb-4">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <span className="ml-4 text-xs text-dark-secondary font-mono">digitalartist.ts</span>
-              </div>
-              <pre className="text-sm font-mono overflow-x-auto">
-                <code>
-                  {codeLines.slice(0, currentLine).map((line) => (
-                    <div key={line.id} className="code-line" dangerouslySetInnerHTML={{ __html: line.content }} />
-                  ))}
-                </code>
-              </pre>
+          {/* Galería de personajes 3D con parallax */}
+          <div className="relative flex items-center justify-center min-h-[500px] lg:min-h-[600px]">
+            <div className="relative w-full h-full">
+              {characters.map((character, index) => {
+                const parallaxOffset = scrollY * character.depth * 100
+                const isHighlighted = index === currentCharacter
+                const opacity = isVisible ? (isHighlighted ? 1 : 0.7) : 0
+                const zIndex = isHighlighted ? 20 : 10
+                
+                return (
+                  <div
+                    key={index}
+                    className="absolute transition-all duration-1000 ease-out"
+                    style={{
+                      left: `${character.x}%`,
+                      top: `${character.y}%`,
+                      transform: `
+                        translate(-50%, calc(-50% + ${parallaxOffset}px)) 
+                        scale(${character.scale * (isHighlighted ? 1.1 : 1)}) 
+                        rotate(${character.rotation + parallaxOffset * 0.1}deg)
+                      `,
+                      opacity: opacity,
+                      zIndex: zIndex,
+                      filter: isHighlighted 
+                        ? `drop-shadow(0 0 30px rgba(139, 92, 246, 0.6)) drop-shadow(0 0 60px rgba(34, 211, 238, 0.4))` 
+                        : `drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3))`,
+                      transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                  >
+                    <img
+                      src={character.src}
+                      alt={character.alt}
+                      className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain pointer-events-none select-none"
+                      style={{
+                        imageRendering: 'crisp-edges',
+                      }}
+                    />
+                  </div>
+                )
+              })}
+              
+              {/* Efecto de resplandor central */}
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 rounded-full pointer-events-none"
+                style={{
+                  background: `radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)`,
+                  animation: 'pulse 4s ease-in-out infinite',
+                }}
+              />
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.5;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.1);
+          }
+        }
+      `}</style>
     </section>
   )
 }
+
 

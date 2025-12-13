@@ -1,20 +1,20 @@
 import type React from "react"
-import { Roboto, Oswald } from "next/font/google"
+import { Inter, Bebas_Neue } from "next/font/google"
 import "./globals.css"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
+const inter = Inter({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 })
 
-const oswald = Oswald({
-  weight: ["400", "500", "600", "700"],
+const bebasNeue = Bebas_Neue({
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-oswald",
+  variable: "--font-bebas",
 })
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "Héctor Mora - Lic. en Desarrollo Integral de Videojuegos. Technical Artist, Game Developer y 3D Artist especializado en Unity, Unreal Engine y experiencias interactivas.",
   icons: {
-    icon: "/mora.svg",
+    icon: "/projects/PngTransparencia/png00.png",
   },
 }
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${roboto.className} ${oswald.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${inter.className} ${bebasNeue.variable}`} suppressHydrationWarning>
       <body className="bg-dark-background text-dark-foreground min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark">
           {children}

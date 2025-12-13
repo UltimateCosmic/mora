@@ -3,12 +3,12 @@
 import { useEffect, useRef } from "react"
 import { SiUnity, SiUnrealengine, SiBlender, SiAutodesk, SiSharp, SiPython, SiCplusplus } from "react-icons/si"
 import { TbBrandThreejs } from "react-icons/tb"
-import { Palette } from "lucide-react"
+import { Box, Code, Palette, Torus } from "lucide-react"
 
 const skillCategories = [
   {
     name: "Programación",
-    icon: <SiSharp className="h-8 w-8" />,
+    icon: <Code className="h-8 w-8" />,
     skills: [
       { name: "C#", icon: <SiSharp className="h-5 w-5" /> },
       { name: "Python", icon: <SiPython className="h-5 w-5" /> },
@@ -17,7 +17,7 @@ const skillCategories = [
   },
   {
     name: "3D & Modelado",
-    icon: <SiBlender className="h-8 w-8" />,
+    icon: <Torus className="h-8 w-8" />,
     skills: [
       { name: "3ds Max", icon: <SiAutodesk className="h-5 w-5" /> },
       { name: "Blender", icon: <SiBlender className="h-5 w-5" /> },
@@ -34,7 +34,7 @@ const skillCategories = [
   },
   {
     name: "Motores Gráficos",
-    icon: <SiUnity className="h-8 w-8" />,
+    icon: <Box className="h-8 w-8" />,
     skills: [
       { name: "Unity", icon: <SiUnity className="h-5 w-5" /> },
       { name: "Unreal Engine", icon: <SiUnrealengine className="h-5 w-5" /> },
@@ -73,7 +73,7 @@ export function SkillsSection() {
     <section id="skills" ref={sectionRef} className="py-16 md:py-24 bg-dark-surface/50 fade-in-section">
       <div className="container px-4 md:px-6">
         <div className="mx-auto max-w-[70rem]">
-          <h2 className="text-4xl font-bold leading-tight tracking-tighter md:text-5xl mb-4 font-[family-name:var(--font-oswald)]">
+          <h2 className="text-4xl md:text-5xl mb-4">
             {/*<span className="gradient-text">#</span>*/} Skills
           </h2>
           <p className="text-dark-secondary text-lg mb-12">
@@ -89,7 +89,7 @@ export function SkillsSection() {
                   <div className="text-dark-cyan group-hover:text-dark-purple transition-colors duration-300 mb-3">
                     {category.icon}
                   </div>
-                  <h3 className="text-xl font-semibold font-[family-name:var(--font-oswald)] group-hover:text-dark-cyan transition-colors">
+                  <h3 className="text-xl font-semibold font-[family-name:var(--font-bebas-neue)] group-hover:text-dark-cyan transition-colors">
                     {category.name}
                   </h3>
                 </div>

@@ -33,14 +33,12 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <Link href="#home" className="font-bold text-2xl font-[family-name:var(--font-oswald)]">
-              <span className="gradient-text">MORA</span>
-              <span className="text-dark-secondary text-sm ml-2">Digital Artist</span>
-            </Link>
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-6">
+          {/* Left spacer (removido el logo) */}
+          <div className="flex-shrink-0 w-40" />
+
+          {/* Centered nav items */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="flex items-baseline space-x-6">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -48,11 +46,13 @@ export function Navbar() {
                   className="text-dark-secondary hover:text-dark-accent px-3 py-2 text-sm font-medium transition-colors relative group"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-dark-purple to-dark-cyan transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-dark-cyan transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
           </div>
+
+          {/* Mobile button on the right */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
