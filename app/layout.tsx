@@ -1,27 +1,28 @@
 import type React from "react"
-import { Geist_Mono as GeistMono } from "next/font/google"
-import { Anton } from "next/font/google"
+import { Roboto, Oswald } from "next/font/google"
 import "./globals.css"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const geistMono = GeistMono({
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
 })
 
-const anton = Anton({
-  weight: "400",
+const oswald = Oswald({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-anton",
+  variable: "--font-oswald",
 })
 
 export const metadata: Metadata = {
-  title: "Johan Amador | Computer Science Student | Software Developer",
-  description: "Johan Amador, Computer Science Student and Software Developer",
+  title: "Héctor Mora | Lic. Desarrollo Integral de Videojuegos",
+  description:
+    "Héctor Mora - Lic. en Desarrollo Integral de Videojuegos. Technical Artist, Game Developer y 3D Artist especializado en Unity, Unreal Engine y experiencias interactivas.",
   icons: {
-    icon: "/johan-icon.png",
+    icon: "/mora.svg",
   },
 }
 
@@ -31,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${geistMono.className} ${anton.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${roboto.className} ${oswald.variable}`} suppressHydrationWarning>
       <body className="bg-dark-background text-dark-foreground min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark">
           {children}

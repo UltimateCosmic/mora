@@ -74,9 +74,9 @@ export function SkillsSection() {
       <div className="container px-4 md:px-6">
         <div className="mx-auto max-w-[70rem]">
           <h2 className="text-4xl font-bold leading-tight tracking-tighter md:text-5xl mb-4 font-[family-name:var(--font-oswald)]">
-            {/*<span className="gradient-text">#</span>*/} Skills
+            <span className="gradient-text">#</span> Skills
           </h2>
-          <p className="text-dark-secondary text-lg mb-12">
+          <p className="text-dark-secondary text-lg mb-12 max-w-2xl">
             Herramientas y tecnologías con las que trabajo para crear experiencias interactivas de alta calidad.
           </p>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

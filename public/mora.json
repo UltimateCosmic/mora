@@ -1,0 +1,73 @@
+{
+  "contacto": {
+    "telefono": {
+      "pais": "MX",
+      "codigo": "+52",
+      "numero": "3316061275"
+    },
+    "correo": "hectormoracg@gmail.com",
+    "redes_sociales": {
+      "instagram": "https://www.instagram.com/mora4zul/",
+      "artstation": "https://www.artstation.com/hectormora",
+      "sketchfab": "https://sketchfab.com/MoraAzul/models",
+      "linkedin": "https://www.linkedin.com/in/h%C3%A9ctor-de-jes%C3%BAs-mora-l%C3%B3pez-238464169"
+    }
+  },
+  "skills": {
+    "programacion": ["C#", "Python", "C++"],
+    "3d_general": ["3ds Max", "Blender"],
+    "texturizado": ["Substance Painter", "Quixel", "3DCoat"],
+    "motores_graficos": ["Unity", "Unreal Engine"]
+  },
+  "proyectos": [
+    {
+      "nombre": "Bimbo",
+      "rol": "Technical Artist",
+      "descripcion_en": "Bimbo was one of my first professional projects, where I served as a Technical Artist. My responsibilities included real-time asset integration, modeling and rigging interactive elements, and creating optimized animation systems for the project. I developed custom Unity tools (editor extensions and automation workflows) that significantly improved the content integration and validation pipeline. I was also responsible for performance optimization including draw-call reduction, LOD management, light baking, and material/shader adjustments as well as porting the project to web and mobile platforms, ensuring compatibility, stability, and efficient loading times.",
+      "descripcion_es": "Bimbo fue uno de mis primeros proyectos profesionales, donde desempeñé el rol de Technical Artist. Mis responsabilidades incluyeron la integración de assets en tiempo real, el modelado y rigging de elementos interactivos, así como la creación de sistemas de animación optimizados para el proyecto. Desarrollé herramientas personalizadas en Unity que mejoraron significativamente el pipeline de integración y validación de contenido. También estuve a cargo de la optimización de performance y del porteo del proyecto a plataformas web y móviles.",
+      "tecnologias": ["Unity", "3ds Max", "C#"]
+    },
+    {
+      "nombre": "Marinela",
+      "rol": "Technical Artist",
+      "descripcion_en": "In the Marinela project, I worked as the Technical Artist, contributing to the integration of web-based tools and their connection with the company's internal applications. I was also responsible for integrating 3D models, rigging, and creating animation systems, as well as developing and implementing custom tools to optimize the project's production pipelines.",
+      "descripcion_es": "En el proyecto Marinela me desempeñé como Technical Artist, participando en la integración de herramientas web y su conexión con aplicaciones internas de la compañía. También estuve a cargo de la integración de modelos 3D, rigging y creación de sistemas de animación, así como del desarrollo de herramientas personalizadas.",
+      "tecnologias": ["Unity", "3ds Max", "C#"]
+    },
+    {
+      "nombre": "Aderiac",
+      "rol": "Lead Programmer",
+      "descripcion_en": "At Aderiac, I served as the Lead Programmer, fully developing a forklift simulator, multiple interactive quizzes, and various internal tools used to build the virtual training course. The entire system was optimized to run standalone on the Oculus Quest 2.",
+      "descripcion_es": "En Aderiac desempeñé el rol de Lead Programmer, desarrollando un simulador de montacargas, quizz interactivos y herramientas internas para capacitación virtual, optimizado para Oculus Quest 2.",
+      "tecnologias": ["Unity", "3ds Max", "C#"]
+    },
+    {
+      "nombre": "Casco",
+      "rol": "Lead Programmer",
+      "descripcion_en": "At Casco, I served as the Lead Programmer, fully developing an interactive product viewer for the company’s components. I created custom tools to integrate and orchestrate predefined interactions and animation systems.",
+      "descripcion_es": "En Casco desarrollé un visualizador interactivo de piezas, creando herramientas personalizadas para coordinar interacciones y sistemas de animación.",
+      "tecnologias": ["Unity", "C#"]
+    },
+    {
+      "nombre": "MAC",
+      "rol": "Project Manager / Lead Programmer / Technical Artist",
+      "descripcion_en": "For the MAC exhibition, I acted as project manager, lead programmer, and technical artist for a fully interactive VR experience developed for the Museum of Contemporary Art of San Luis Potosí.",
+      "descripcion_es": "En la presentación del MAC tuve a mi cargo la gestión, programación y dirección técnica de un entorno VR interactivo para el Museo de Arte Contemporáneo de San Luis Potosí.",
+      "tecnologias": ["Unity", "C#"]
+    },
+    {
+      "nombre": "Hell Soul Factory",
+      "rol": "Full Project Developer",
+      "descripcion_en": "For Hell Soul Factory, I was responsible for the complete development of the project, including gameplay programming, 3D modeling, rigging, animation, optimization, and publishing to the Play Store.",
+      "descripcion_es": "En Hell Soul Factory estuve a cargo del desarrollo integral del proyecto, incluyendo programación, modelado 3D, animación, optimización y publicación en Play Store.",
+      "tecnologias": ["Unity", "C#", "Blender"]
+    },
+    {
+      "nombre": "Rubbermaid",
+      "rol": "Technical Artist",
+      "descripcion_en": "At Rubbermaid, I worked as a Technical Artist, developing and integrating lighting systems, reflections, and interactive visuals optimized for WebGL and Android.",
+      "descripcion_es": "En Rubbermaid desarrollé e integré sistemas de iluminación, reflecciones y visuales interactivas, optimizados para WebGL y Android.",
+      "tecnologias": ["Unity", "WebGL", "Android"]
+    }
+  ]
+}

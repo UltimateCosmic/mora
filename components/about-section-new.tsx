@@ -1,10 +1,9 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Mail, MapPin, Sparkles, Lightbulb, Box, Glasses, Gamepad, Spline } from "lucide-react"
+import { Mail, MapPin } from "lucide-react"
 import { FaInstagram, FaLinkedin, FaArtstation } from "react-icons/fa"
-import { SiSketchfab, SiUnity, SiUnrealengine, SiBlender, SiAutodesk, SiOculus } from "react-icons/si"
-import { MdTouchApp } from "react-icons/md"
+import { SiSketchfab } from "react-icons/si"
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -38,12 +37,12 @@ export function AboutSection() {
       <div className="container px-4 md:px-6">
         <div className="mx-auto flex max-w-[70rem] flex-col items-start justify-center gap-8">
           <h2 className="text-4xl font-bold leading-tight tracking-tighter md:text-5xl font-[family-name:var(--font-oswald)]">
-            {/*<span className="gradient-text">#</span>*/} Sobre Mí
+            Sobre Mí
           </h2>
           <div className="mt-4 grid gap-12 md:grid-cols-[2fr_1fr]">
             <div>
               <p className="text-dark-foreground mb-6 text-lg leading-relaxed">
-                Soy Lic. en Desarrollo Integral de Videojuegos, Technical Artist y Desarrollador de Videojuegos, especializado
+                Soy un <span className="text-dark-cyan font-semibold">Technical Artist</span> y <span className="text-dark-purple font-semibold">Game Developer</span> especializado 
                 en crear experiencias interactivas inmersivas. Mi pasión es fusionar el arte con la tecnología para dar vida a mundos virtuales impresionantes.
               </p>
               <p className="text-dark-foreground mb-6 text-lg leading-relaxed">
@@ -57,68 +56,21 @@ export function AboutSection() {
               
               <h3 className="text-2xl font-semibold mb-4 text-dark-cyan font-[family-name:var(--font-oswald)]">Especialidades</h3>
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="group bg-dark-background p-4 rounded-lg border border-dark-border hover:border-dark-purple transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="text-dark-purple group-hover:scale-110 transition-transform">
-                      <Spline className="h-6 w-6" />
-                    </div>
-                    <p className="text-dark-purple font-semibold">Technical Art</p>
-                  </div>
+                <div className="bg-dark-background p-4 rounded-lg border border-dark-border">
+                  <p className="text-dark-purple font-semibold">Technical Art</p>
                   <p className="text-dark-secondary text-sm">Shaders, VFX, Lighting</p>
                 </div>
-                <div className="group bg-dark-background p-4 rounded-lg border border-dark-border hover:border-dark-cyan transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="text-dark-cyan group-hover:scale-110 transition-transform">
-                      <Box className="h-6 w-6" />
-                    </div>
-                    <p className="text-dark-cyan font-semibold">3D Modeling</p>
-                  </div>
-                  <ul className="text-dark-secondary text-sm space-y-1">
-                    <li className="flex items-center gap-2">
-                      <SiAutodesk className="h-4 w-4 text-dark-accent" />
-                      <span>3ds Max</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <SiBlender className="h-4 w-4 text-dark-accent" />
-                      <span>Blender</span>
-                    </li>
-                  </ul>
+                <div className="bg-dark-background p-4 rounded-lg border border-dark-border">
+                  <p className="text-dark-cyan font-semibold">3D Modeling</p>
+                  <p className="text-dark-secondary text-sm">3ds Max, Blender</p>
                 </div>
-                <div className="group bg-dark-background p-4 rounded-lg border border-dark-border hover:border-dark-purple transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="text-dark-purple group-hover:scale-110 transition-transform">
-                      <Gamepad className="h-6 w-6" />
-                    </div>
-                    <p className="text-dark-purple font-semibold">Game Development</p>
-                  </div>
-                  <ul className="text-dark-secondary text-sm space-y-1">
-                    <li className="flex items-center gap-2">
-                      <SiUnity className="h-4 w-4 text-dark-accent" />
-                      <span>Unity</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <SiUnrealengine className="h-4 w-4 text-dark-accent" />
-                      <span>Unreal Engine</span>
-                    </li>
-                  </ul>
+                <div className="bg-dark-background p-4 rounded-lg border border-dark-border">
+                  <p className="text-dark-purple font-semibold">Game Development</p>
+                  <p className="text-dark-secondary text-sm">Unity, Unreal Engine</p>
                 </div>
-                <div className="group bg-dark-background p-4 rounded-lg border border-dark-border hover:border-dark-cyan transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="text-dark-cyan group-hover:scale-110 transition-transform">
-                      <Glasses className="h-6 w-6" />
-                    </div>
-                    <p className="text-dark-cyan font-semibold">VR Experiences</p>
-                  </div>
-                  <ul className="text-dark-secondary text-sm space-y-1">
-                    <li className="flex items-center gap-2">
-                      <SiOculus className="h-4 w-4 text-dark-accent" />
-                      <span>Oculus</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <MdTouchApp className="h-4 w-4 text-dark-accent" />
-                      <span>Interactive</span>
-                    </li>
-                  </ul>
+                <div className="bg-dark-background p-4 rounded-lg border border-dark-border">
+                  <p className="text-dark-cyan font-semibold">VR Experiences</p>
+                  <p className="text-dark-secondary text-sm">Oculus, Interactive</p>
                 </div>
               </div>
             </div>
