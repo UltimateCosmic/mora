@@ -125,7 +125,7 @@ export function HeroSection() {
           {/* Contenido textual con mejor jerarquía visual */}
           <div className="flex flex-col justify-center space-y-6">
             <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <div className="flex items-baseline mb-3">
+              <div className="flex items-baseline mb-3 justify-center md:justify-start">
                 <div className="flex items-center group cursor-pointer">
                   <img 
                     src="/mora.svg" 
@@ -135,10 +135,10 @@ export function HeroSection() {
                   <h1 className="sr-only">HÉCTOR MORA</h1>
                 </div>
               </div>
-              <h2 className="font-bebas-neue text-2xl sm:text-3xl xl:text-4xl text-white mb-5 tracking-wide">
+              <h2 className="font-bebas-neue text-2xl sm:text-3xl xl:text-4xl text-white mb-5 tracking-wide text-center md:text-left">
                 <span className="text-dark-purple">Lic.</span> Desarrollo Integral de Videojuegos
               </h2>
-              <p className="max-w-[600px] text-dark-secondary text-base sm:text-lg mb-6 leading-relaxed font-light">
+              <p className="max-w-[600px] text-dark-secondary text-base sm:text-lg mb-6 leading-relaxed font-light text-center md:text-left mx-auto md:mx-0">
                 <span className="text-white font-medium">Technical Artist</span> especializado en{" "}
                 <span className="text-dark-cyan font-medium">Unity</span> y{" "}
                 <span className="text-dark-cyan font-medium">Unreal Engine</span>. 
@@ -150,7 +150,7 @@ export function HeroSection() {
             </div>
 
             <div
-              className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} justify-center md:justify-start`}
             >
               <Button
                 className="bg-dark-purple hover:bg-dark-purple/80 text-white font-semibold shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.5)] transition-all duration-300 px-8 py-6 text-base"
@@ -171,7 +171,7 @@ export function HeroSection() {
             </div>
 
             <div
-              className={`flex space-x-4 transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`flex space-x-4 transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} justify-center md:justify-start`}
             >
               <Link
                 href="https://www.instagram.com/mora4zul/"

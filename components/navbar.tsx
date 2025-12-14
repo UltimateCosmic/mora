@@ -33,11 +33,11 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Left spacer (removido el logo) */}
-          <div className="flex-shrink-0 w-40" />
+          {/* Left spacer (removido el logo) - solo visible en desktop */}
+          <div className="hidden md:block flex-shrink-0 w-40" />
 
-          {/* Centered nav items */}
-          <div className="flex-1 flex items-center justify-center">
+          {/* Centered nav items - solo visible en desktop */}
+          <div className="hidden md:flex flex-1 items-center justify-center">
             <div className="flex items-baseline space-x-6">
               {navItems.map((item) => (
                 <Link
@@ -53,7 +53,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile button on the right */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-1 flex justify-end">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-dark-secondary hover:text-dark-accent focus:outline-none"
