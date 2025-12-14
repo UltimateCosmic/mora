@@ -235,10 +235,14 @@ export function HeroSection() {
                 const zIndex = isPrimary ? 30 : (isHighlighted ? 20 : 10)
                 const scale = isPrimary ? 1.05 : (isHighlighted ? 1.08 : 1)
                 
+                // Animación flotante única para cada personaje
+                const floatAnimation = `float-${index}`
+                const animationDuration = `${3 + index * 0.5}s`
+                
                 return (
                   <div
                     key={index}
-                    className="absolute transition-all duration-1000 ease-out"
+                    className="absolute"
                     style={{
                       left: `${character.x}%`,
                       top: `${character.y}%`,
@@ -254,7 +258,7 @@ export function HeroSection() {
                         : isHighlighted 
                         ? `drop-shadow(0 0 25px rgba(139, 92, 246, 0.5)) drop-shadow(0 0 50px rgba(34, 211, 238, 0.3)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3))` 
                         : `drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35))`,
-                      transition: 'all 1s cubic-bezier(0.4, 0, 0.2, 1)',
+                      transition: 'opacity 1s cubic-bezier(0.4, 0, 0.2, 1), filter 1s cubic-bezier(0.4, 0, 0.2, 1)',
                     }}
                   >
                     <img
@@ -263,6 +267,7 @@ export function HeroSection() {
                       className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 lg:w-64 lg:h-64 object-contain pointer-events-none select-none"
                       style={{
                         imageRendering: 'auto',
+                        animation: `${floatAnimation} ${animationDuration} ease-in-out infinite`,
                       }}
                     />
                   </div>
@@ -313,6 +318,61 @@ export function HeroSection() {
           50% {
             opacity: 0.3;
             transform: translate(-50%, -50%) scale(1);
+          }
+        }
+        
+        /* Animaciones flotantes - solo para las imágenes, sin afectar posición o escala del contenedor */
+        @keyframes float-0 {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-12px);
+          }
+        }
+        
+        @keyframes float-1 {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        
+        @keyframes float-2 {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-15px);
+          }
+        }
+        
+        @keyframes float-3 {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+        
+        @keyframes float-4 {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-11px);
+          }
+        }
+        
+        @keyframes float-5 {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-9px);
           }
         }
       `}</style>

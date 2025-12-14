@@ -2,25 +2,17 @@
 
 Portafolio profesional de Héctor Mora - Technical Artist, Game Developer y 3D Artist especializado en Unity, Unreal Engine y desarrollo de experiencias interactivas.
 
-## 🎮 Sobre Mí
+## Sobre Mí
 
 Technical Artist y Game Developer con amplia experiencia en:
+
 - Desarrollo de herramientas personalizadas para Unity
 - Optimización de performance y pipelines de producción
 - Modelado 3D, rigging y sistemas de animación
 - Experiencias VR/AR interactivas
 - Integración de assets en tiempo real
 
-## 🛠️ Tech Stack
-
-- **Next.js 15** - Framework React de producción
-- **React 19** - Biblioteca UI
-- **TypeScript** - Tipado estático
-- **Tailwind CSS** - Framework de estilos
-- **shadcn/ui** - Componentes UI modernos
-- **Lucide Icons & React Icons** - Iconografía
-
-## 🎯 Stack de Desarrollo de Videojuegos
+## Stack de Desarrollo de Videojuegos
 
 - **Motores**: Unity, Unreal Engine
 - **Programación**: C#, Python, C++
@@ -28,7 +20,7 @@ Technical Artist y Game Developer con amplia experiencia en:
 - **Texturizado**: Substance Painter, Quixel, 3DCoat
 - **Plataformas**: PC, WebGL, Android, Oculus Quest 2
 
-## 🚀 Proyectos Destacados
+## Proyectos Destacados
 
 - **Bimbo** - Technical Artist | Unity, 3ds Max, C#
 - **Marinela** - Technical Artist | Unity, 3ds Max, C#
@@ -38,21 +30,11 @@ Technical Artist y Game Developer con amplia experiencia en:
 - **Hell Soul Factory** - Full Developer | Juego móvil publicado en Play Store
 - **Rubbermaid** - Technical Artist | WebGL y Android
 
-## 🎨 Características del Portfolio
-
-- Diseño dark theme con gradientes púrpura/cyan
-- Animaciones suaves y efectos visuales
-- Galería de proyectos con imágenes
-- Sección de habilidades categorizadas
-- Formulario de contacto
-- Responsive design
-- Links a redes sociales (Instagram, ArtStation, Sketchfab, LinkedIn)
-
-## 🚀 Instalación y Desarrollo
+## Instalación y Desarrollo
 
 ```bash
 # Clonar el repositorio
-git clone [tu-repo-url]
+git clone [url-del-repo]
 
 # Instalar dependencias
 pnpm install # o npm install
@@ -63,7 +45,7 @@ pnpm dev # o npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000) para ver el sitio.
 
-## 📦 Build de Producción
+## Build de Producción
 
 ```bash
 # Crear build optimizado
@@ -73,20 +55,18 @@ pnpm build
 pnpm start
 ```
 
-## 🌐 Redes Sociales
+## Redes Sociales
 
-- 🎨 **ArtStation**: [hectormora](https://www.artstation.com/hectormora)
-- 📷 **Instagram**: [@mora4zul](https://www.instagram.com/mora4zul/)
-- 🎮 **Sketchfab**: [MoraAzul](https://sketchfab.com/MoraAzul/models)
-- 💼 **LinkedIn**: [Héctor Mora](https://www.linkedin.com/in/héctor-de-jesús-mora-lópez-238464169)
-- ✉️ **Email**: hectormoracg@gmail.com
+- **ArtStation**: [hectormora](https://www.artstation.com/hectormora)
+- **Instagram**: [@mora4zul](https://www.instagram.com/mora4zul/)
+- **Sketchfab**: [MoraAzul](https://sketchfab.com/MoraAzul/models)
+- **LinkedIn**: [Héctor Mora](https://www.linkedin.com/in/héctor-de-jesús-mora-lópez-238464169)
+- **Email**: hectormoracg@gmail.com
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la licencia MIT.
 
 ---
 
-> Desarrollado con Next.js, React y Tailwind CSS por Héctor Mora
-
-
+> Desarrollado con Next.js, React y Tailwind CSS por CosmoDev

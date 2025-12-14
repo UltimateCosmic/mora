@@ -370,7 +370,7 @@ export function ProjectsSection() {
               {/* Miniaturas de imágenes */}
               {selectedProject.images.length > 1 && (
                 <div className="mt-8">
-                  <h3 className="text-xl font-semibold mb-3 text-dark-cyan">Galería</h3>
+                  <h3 className="text-xl mb-2 text-dark-cyan">Galería</h3>
                   <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                     {selectedProject.images.map((image, index) => (
                       <button
