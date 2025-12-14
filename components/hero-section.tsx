@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight } from "lucide-react"
-import { FaInstagram, FaLinkedin, FaArtstation } from "react-icons/fa"
+import { FaInstagram, FaLinkedin, FaArtstation, FaItchIo, FaGooglePlay } from "react-icons/fa"
 import { SiSketchfab } from "react-icons/si"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -208,6 +208,24 @@ export function HeroSection() {
               >
                 <FaLinkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
+              </Link>
+              <Link
+                href="https://moraazul.itch.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-dark-secondary hover:text-dark-purple transition-all duration-300 p-2.5 hover:bg-dark-purple/10 rounded-lg backdrop-blur-sm border border-transparent hover:border-dark-purple/30"
+              >
+                <FaItchIo className="h-6 w-6" />
+                <span className="sr-only">Itch.io</span>
+              </Link>
+              <Link
+                href="https://play.google.com/store/apps/dev?id=6474479279117437176"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-dark-secondary hover:text-dark-purple transition-all duration-300 p-2.5 hover:bg-dark-purple/10 rounded-lg backdrop-blur-sm border border-transparent hover:border-dark-purple/30"
+              >
+                <FaGooglePlay className="h-6 w-6" />
+                <span className="sr-only">Google Play Store</span>
               </Link>
             </div>
           </div>

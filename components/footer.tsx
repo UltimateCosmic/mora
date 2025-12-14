@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react"
-import { FaInstagram, FaLinkedin, FaArtstation } from "react-icons/fa"
+import { FaInstagram, FaLinkedin, FaArtstation, FaItchIo, FaGooglePlay } from "react-icons/fa"
 import { SiSketchfab } from "react-icons/si"
 import Link from "next/link"
 
@@ -61,6 +61,26 @@ export function Footer() {
             >
               <FaLinkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
+            </Link>
+            <Link
+              href="https://moraazul.itch.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-dark-secondary hover:text-red-500 transition-all duration-300 hover:scale-110"
+              title="Itch.io"
+            >
+              <FaItchIo className="h-5 w-5" />
+              <span className="sr-only">Itch.io</span>
+            </Link>
+            <Link
+              href="https://play.google.com/store/apps/dev?id=6474479279117437176"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-dark-secondary hover:text-green-500 transition-all duration-300 hover:scale-110"
+              title="Google Play Store"
+            >
+              <FaGooglePlay className="h-5 w-5" />
+              <span className="sr-only">Google Play Store</span>
             </Link>
             <Link
               href="mailto:hectormoracg@gmail.com"

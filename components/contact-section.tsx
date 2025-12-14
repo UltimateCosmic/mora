@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Mail, MapPin, Phone } from "lucide-react"
-import { FaInstagram, FaLinkedin, FaArtstation } from "react-icons/fa"
+import { FaInstagram, FaLinkedin, FaArtstation, FaItchIo, FaGooglePlay } from "react-icons/fa"
 import { SiSketchfab } from "react-icons/si"
 import Link from "next/link"
 
@@ -124,6 +124,24 @@ export function ContactSection() {
                 >
                   <FaLinkedin className="h-10 w-10 mb-3 text-dark-cyan transition-colors" />
                   <span className="text-sm font-medium text-dark-foreground transition-colors">LinkedIn</span>
+                </Link>
+                <Link
+                  href="https://moraazul.itch.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center justify-center p-6 bg-dark-background hover:bg-dark-cyan/10 rounded-lg border border-dark-border hover:border-dark-cyan transition-all duration-300"
+                >
+                  <FaItchIo className="h-10 w-10 mb-3 text-dark-cyan transition-colors" />
+                  <span className="text-sm font-medium text-dark-foreground transition-colors">Itch.io</span>
+                </Link>
+                <Link
+                  href="https://play.google.com/store/apps/dev?id=6474479279117437176"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center justify-center p-6 bg-dark-background hover:bg-dark-cyan/10 rounded-lg border border-dark-border hover:border-dark-cyan transition-all duration-300"
+                >
+                  <FaGooglePlay className="h-10 w-10 mb-3 text-dark-cyan transition-colors" />
+                  <span className="text-sm font-medium text-dark-foreground transition-colors">Play Store</span>
                 </Link>
               </div>
             </div>

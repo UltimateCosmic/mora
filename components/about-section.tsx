@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { Mail, MapPin, Sparkles, Lightbulb, Box, Glasses, Gamepad, Spline } from "lucide-react"
-import { FaInstagram, FaLinkedin, FaArtstation } from "react-icons/fa"
+import { FaInstagram, FaLinkedin, FaArtstation, FaItchIo, FaGooglePlay } from "react-icons/fa"
 import { SiSketchfab, SiUnity, SiUnrealengine, SiBlender, SiAutodesk, SiOculus } from "react-icons/si"
 import { MdTouchApp } from "react-icons/md"
 
@@ -121,22 +121,30 @@ export function AboutSection() {
                 </div>
                 
                 <h3 className="text-2xl mb-6 text-dark-cyan">Sígueme en</h3>    
-                <div className="flex space-x-4">
+                <div className="w-full max-w-[380px] grid gap-3 grid-cols-[repeat(auto-fit,minmax(56px,1fr))] justify-center">
                   <a href="https://www.instagram.com/mora4zul/" target="_blank" rel="noopener noreferrer" 
-                     className="p-3 bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
+                     className="w-14 h-14 flex items-center justify-center bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
                     <FaInstagram size={24} className="text-dark-cyan" />
                   </a>
                   <a href="https://www.artstation.com/hectormora" target="_blank" rel="noopener noreferrer" 
-                     className="p-3 bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
+                     className="w-14 h-14 flex items-center justify-center bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
                     <FaArtstation size={24} className="text-dark-cyan" />
                   </a>
                   <a href="https://sketchfab.com/MoraAzul/models" target="_blank" rel="noopener noreferrer" 
-                     className="p-3 bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
+                     className="w-14 h-14 flex items-center justify-center bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
                     <SiSketchfab size={24} className="text-dark-cyan" />
                   </a>
                   <a href="https://www.linkedin.com/in/h%C3%A9ctor-de-jes%C3%BAs-mora-l%C3%B3pez-238464169" target="_blank" rel="noopener noreferrer" 
-                     className="p-3 bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
+                     className="w-14 h-14 flex items-center justify-center bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
                     <FaLinkedin size={24} className="text-dark-cyan" />
+                  </a>
+                  <a href="https://moraazul.itch.io/" target="_blank" rel="noopener noreferrer" 
+                     className="w-14 h-14 flex items-center justify-center bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
+                    <FaItchIo size={24} className="text-dark-cyan" />
+                  </a>
+                  <a href="https://play.google.com/store/apps/dev?id=6474479279117437176" target="_blank" rel="noopener noreferrer" 
+                     className="w-14 h-14 flex items-center justify-center bg-dark-surface rounded-lg hover:bg-dark-cyan/20 transition-all">
+                    <FaGooglePlay size={24} className="text-dark-cyan" />
                   </a>
                 </div>
               </div>
